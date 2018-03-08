@@ -1,0 +1,5 @@
+Date            2018-03-06 22:09:28.280559
+Device          cuda
+Working dir     /data/yyh/pgans
+Executable      train.py
+Arguments       

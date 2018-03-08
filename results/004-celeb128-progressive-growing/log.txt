@@ -1,0 +1,191 @@
+Importing Theano...
+/home/yyh/miniconda2/lib/python2.7/site-packages/theano/configdefaults.py:1931: UserWarning: Theano does not recognise this flag: lib.cnmem
+  warnings.warn('Theano does not recognise this flag: {0}'.format(key))
+/home/yyh/miniconda2/lib/python2.7/site-packages/theano/configdefaults.py:1931: UserWarning: Theano does not recognise this flag: nvcc.fastmath
+  warnings.warn('Theano does not recognise this flag: {0}'.format(key))
+Using cuDNN version 5103 on context None
+Preallocating 8937/11172 Mb (0.800000) on cuda
+Mapped name None to device cuda: GeForce GTX 1080 Ti (0000:4B:00.0)
+/home/yyh/miniconda2/lib/python2.7/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+
+LayerName       LayerType                   Params    OutputShape         WeightShape         Activation
+---             ---                         ---       ---                 ---                 ---
+Glatents        InputLayer                  0         ?, 128                                  
+Ginb            ReshapeLayer                0         ?, 128, 1, 1                            
+G1a             Conv2DLayer                 1048576   ?, 512, 4, 4        512, 128, 4, 4      linear
+G1a_bn          BatchNormLayer              1024      ?, 512, 4, 4                            
+G1a_bn_nonlin   NonlinearityLayer           0         ?, 512, 4, 4                            rectify
+G1b             Conv2DLayer                 2359296   ?, 512, 4, 4        512, 512, 3, 3      linear
+G1b_bn          BatchNormLayer              1024      ?, 512, 4, 4                            
+G1b_bn_nonlin   NonlinearityLayer           0         ?, 512, 4, 4                            rectify
+G2up            Upscale2DLayer              0         ?, 512, 8, 8                            
+G2a             Conv2DLayer                 2359296   ?, 512, 8, 8        512, 512, 3, 3      linear
+G2a_bn          BatchNormLayer              1024      ?, 512, 8, 8                            
+G2a_bn_nonlin   NonlinearityLayer           0         ?, 512, 8, 8                            rectify
+G2b             Conv2DLayer                 2359296   ?, 512, 8, 8        512, 512, 3, 3      linear
+G2b_bn          BatchNormLayer              1024      ?, 512, 8, 8                            
+G2b_bn_nonlin   NonlinearityLayer           0         ?, 512, 8, 8                            rectify
+G3up            Upscale2DLayer              0         ?, 512, 16, 16                          
+G3a             Conv2DLayer                 1179648   ?, 256, 16, 16      256, 512, 3, 3      linear
+G3a_bn          BatchNormLayer              512       ?, 256, 16, 16                          
+G3a_bn_nonlin   NonlinearityLayer           0         ?, 256, 16, 16                          rectify
+G3b             Conv2DLayer                 589824    ?, 256, 16, 16      256, 256, 3, 3      linear
+G3b_bn          BatchNormLayer              512       ?, 256, 16, 16                          
+G3b_bn_nonlin   NonlinearityLayer           0         ?, 256, 16, 16                          rectify
+G4up            Upscale2DLayer              0         ?, 256, 32, 32                          
+G4a             Conv2DLayer                 294912    ?, 128, 32, 32      128, 256, 3, 3      linear
+G4a_bn          BatchNormLayer              256       ?, 128, 32, 32                          
+G4a_bn_nonlin   NonlinearityLayer           0         ?, 128, 32, 32                          rectify
+G4b             Conv2DLayer                 147456    ?, 128, 32, 32      128, 128, 3, 3      linear
+G4b_bn          BatchNormLayer              256       ?, 128, 32, 32                          
+G4b_bn_nonlin   NonlinearityLayer           0         ?, 128, 32, 32                          rectify
+G5up            Upscale2DLayer              0         ?, 128, 64, 64                          
+G5a             Conv2DLayer                 73728     ?, 64, 64, 64       64, 128, 3, 3       linear
+G5a_bn          BatchNormLayer              128       ?, 64, 64, 64                           
+G5a_bn_nonlin   NonlinearityLayer           0         ?, 64, 64, 64                           rectify
+G5b             Conv2DLayer                 36864     ?, 64, 64, 64       64, 64, 3, 3        linear
+G5b_bn          BatchNormLayer              128       ?, 64, 64, 64                           
+G5b_bn_nonlin   NonlinearityLayer           0         ?, 64, 64, 64                           rectify
+G6up            Upscale2DLayer              0         ?, 64, 128, 128                         
+G6a             Conv2DLayer                 18432     ?, 32, 128, 128     32, 64, 3, 3        linear
+G6a_bn          BatchNormLayer              64        ?, 32, 128, 128                         
+G6a_bn_nonlin   NonlinearityLayer           0         ?, 32, 128, 128                         rectify
+G6b             Conv2DLayer                 9216      ?, 32, 128, 128     32, 32, 3, 3        linear
+G6b_bn          BatchNormLayer              64        ?, 32, 128, 128                         
+G6b_bn_nonlin   NonlinearityLayer           0         ?, 32, 128, 128                         rectify
+Glod0           NINLayer                    99        ?, 3, 128, 128      32, 3               linear
+Glod1           NINLayer                    195       ?, 3, 64, 64        64, 3               linear
+Glod2           NINLayer                    387       ?, 3, 32, 32        128, 3              linear
+Glod3           NINLayer                    771       ?, 3, 16, 16        256, 3              linear
+Glod4           NINLayer                    1539      ?, 3, 8, 8          512, 3              linear
+Glod5           NINLayer                    1539      ?, 3, 4, 4          512, 3              linear
+Glod            LODSelectLayer              0         ?, 3, 128, 128                          
+Gtanh           NonlinearityLayer           0         ?, 3, 128, 128                          tanh
+---             ---                         ---       ---                 ---                 ---
+Total                                       10487090                                          
+
+
+LayerName       LayerType                   Params    OutputShape         WeightShape         Activation
+---             ---                         ---       ---                 ---                 ---
+Dimages         InputLayer                  0         ?, 3, 128, 128                          
+D6x             NINLayer                    128       ?, 32, 128, 128     3, 32               LeakyRectify
+D6b             Conv2DLayer                 9216      ?, 32, 128, 128     32, 32, 3, 3        linear
+D6bln           LayerNormLayer              33        ?, 32, 128, 128                         LeakyRectify
+D6a             Conv2DLayer                 18432     ?, 64, 128, 128     64, 32, 3, 3        linear
+D6aln           LayerNormLayer              65        ?, 64, 128, 128                         LeakyRectify
+D6dn            Pool2DLayer                 0         ?, 64, 64, 64                           
+D5xs            Pool2DLayer                 0         ?, 3, 64, 64                            
+D5x             NINLayer                    256       ?, 64, 64, 64       3, 64               LeakyRectify
+D5lod           LODSelectLayer              0         ?, 64, 64, 64                           
+D5b             Conv2DLayer                 36864     ?, 64, 64, 64       64, 64, 3, 3        linear
+D5bln           LayerNormLayer              65        ?, 64, 64, 64                           LeakyRectify
+D5a             Conv2DLayer                 73728     ?, 128, 64, 64      128, 64, 3, 3       linear
+D5aln           LayerNormLayer              129       ?, 128, 64, 64                          LeakyRectify
+D5dn            Pool2DLayer                 0         ?, 128, 32, 32                          
+D4xs            Pool2DLayer                 0         ?, 3, 32, 32                            
+D4x             NINLayer                    512       ?, 128, 32, 32      3, 128              LeakyRectify
+D4lod           LODSelectLayer              0         ?, 128, 32, 32                          
+D4b             Conv2DLayer                 147456    ?, 128, 32, 32      128, 128, 3, 3      linear
+D4bln           LayerNormLayer              129       ?, 128, 32, 32                          LeakyRectify
+D4a             Conv2DLayer                 294912    ?, 256, 32, 32      256, 128, 3, 3      linear
+D4aln           LayerNormLayer              257       ?, 256, 32, 32                          LeakyRectify
+D4dn            Pool2DLayer                 0         ?, 256, 16, 16                          
+D3xs            Pool2DLayer                 0         ?, 3, 16, 16                            
+D3x             NINLayer                    1024      ?, 256, 16, 16      3, 256              LeakyRectify
+D3lod           LODSelectLayer              0         ?, 256, 16, 16                          
+D3b             Conv2DLayer                 589824    ?, 256, 16, 16      256, 256, 3, 3      linear
+D3bln           LayerNormLayer              257       ?, 256, 16, 16                          LeakyRectify
+D3a             Conv2DLayer                 1179648   ?, 512, 16, 16      512, 256, 3, 3      linear
+D3aln           LayerNormLayer              513       ?, 512, 16, 16                          LeakyRectify
+D3dn            Pool2DLayer                 0         ?, 512, 8, 8                            
+D2xs            Pool2DLayer                 0         ?, 3, 8, 8                              
+D2x             NINLayer                    2048      ?, 512, 8, 8        3, 512              LeakyRectify
+D2lod           LODSelectLayer              0         ?, 512, 8, 8                            
+D2b             Conv2DLayer                 2359296   ?, 512, 8, 8        512, 512, 3, 3      linear
+D2bln           LayerNormLayer              513       ?, 512, 8, 8                            LeakyRectify
+D2a             Conv2DLayer                 2359296   ?, 512, 8, 8        512, 512, 3, 3      linear
+D2aln           LayerNormLayer              513       ?, 512, 8, 8                            LeakyRectify
+D2dn            Pool2DLayer                 0         ?, 512, 4, 4                            
+D1xs            Pool2DLayer                 0         ?, 3, 4, 4                              
+D1x             NINLayer                    2048      ?, 512, 4, 4        3, 512              LeakyRectify
+D1lod           LODSelectLayer              0         ?, 512, 4, 4                            
+D1b             Conv2DLayer                 2359296   ?, 512, 4, 4        512, 512, 3, 3      linear
+D1bln           LayerNormLayer              513       ?, 512, 4, 4                            LeakyRectify
+D1a             Conv2DLayer                 4194304   ?, 512, 1, 1        512, 512, 4, 4      linear
+D1aln           LayerNormLayer              513       ?, 512, 1, 1                            LeakyRectify
+Dscores         DenseLayer                  513       ?, 1                512, 1              linear
+---             ---                         ---       ---                 ---                 ---
+Total                                       13632301                                          
+
+Setting up Theano...
+Saving results to results/004-celeb128-progressive-growing
+Compiling training funcs...
+tick 1     kimg 50.2     lod 5.00  minibatch 64   time 1m 16s       sec/tick 76.2      sec/kimg 1.5    Dgdrop 0.0000   Gloss 20.5834  Dloss -32.8763 Dreal 0.0000   Dfake -37.9410
+tick 2     kimg 100.5    lod 5.00  minibatch 64   time 2m 07s       sec/tick 51.2      sec/kimg 1.0    Dgdrop 0.0000   Gloss 28.2838  Dloss -46.0225 Dreal 0.0000   Dfake -56.9243
+tick 3     kimg 150.7    lod 5.00  minibatch 64   time 2m 59s       sec/tick 51.5      sec/kimg 1.0    Dgdrop 0.0000   Gloss 22.4749  Dloss -27.9104 Dreal 0.0000   Dfake -37.7521
+tick 4     kimg 201.0    lod 5.00  minibatch 64   time 3m 50s       sec/tick 51.3      sec/kimg 1.0    Dgdrop 0.0000   Gloss 26.4322  Dloss -18.3127 Dreal 0.0000   Dfake -24.0768
+tick 5     kimg 251.2    lod 5.00  minibatch 64   time 4m 42s       sec/tick 51.4      sec/kimg 1.0    Dgdrop 0.0000   Gloss 31.6596  Dloss -14.3388 Dreal 0.0000   Dfake -18.3940
+tick 6     kimg 301.4    lod 5.00  minibatch 64   time 5m 33s       sec/tick 51.5      sec/kimg 1.0    Dgdrop 0.0000   Gloss 37.0526  Dloss -12.8269 Dreal 0.0000   Dfake -16.2714
+tick 7     kimg 351.7    lod 5.00  minibatch 64   time 6m 24s       sec/tick 51.4      sec/kimg 1.0    Dgdrop 0.0000   Gloss 44.2848  Dloss -11.6982 Dreal 0.0000   Dfake -14.8770
+tick 8     kimg 401.9    lod 5.00  minibatch 64   time 7m 16s       sec/tick 51.9      sec/kimg 1.0    Dgdrop 0.0000   Gloss 50.4584  Dloss -11.0942 Dreal 0.0000   Dfake -14.1607
+tick 9     kimg 452.2    lod 5.00  minibatch 64   time 8m 07s       sec/tick 51.0      sec/kimg 1.0    Dgdrop 0.0000   Gloss 57.4044  Dloss -10.0992 Dreal 0.0000   Dfake -12.9430
+tick 10    kimg 502.4    lod 5.00  minibatch 64   time 9m 00s       sec/tick 52.7      sec/kimg 1.0    Dgdrop 0.0000   Gloss 63.6877  Dloss -9.7576  Dreal 0.0000   Dfake -12.4593
+tick 11    kimg 552.6    lod 5.00  minibatch 64   time 9m 51s       sec/tick 50.6      sec/kimg 1.0    Dgdrop 0.0000   Gloss 72.0575  Dloss -9.3326  Dreal 0.0000   Dfake -11.9469
+tick 12    kimg 602.9    lod 5.00  minibatch 64   time 10m 43s      sec/tick 52.4      sec/kimg 1.0    Dgdrop 0.0000   Gloss 75.2233  Dloss -8.3098  Dreal 0.0000   Dfake -10.6379
+tick 13    kimg 653.1    lod 5.00  minibatch 64   time 11m 24s      sec/tick 41.0      sec/kimg 0.8    Dgdrop 0.0000   Gloss 79.2228  Dloss -7.6613  Dreal 0.0000   Dfake -9.8240 
+tick 14    kimg 703.4    lod 5.00  minibatch 64   time 11m 59s      sec/tick 35.3      sec/kimg 0.7    Dgdrop 0.0000   Gloss 82.4511  Dloss -6.9934  Dreal 0.0000   Dfake -8.9227 
+tick 15    kimg 753.6    lod 5.00  minibatch 64   time 12m 35s      sec/tick 35.3      sec/kimg 0.7    Dgdrop 0.0000   Gloss 83.2919  Dloss -6.6257  Dreal 0.0000   Dfake -8.3989 
+Compiling training funcs...
+tick 16    kimg 803.8    lod 5.00  minibatch 64   time 14m 00s      sec/tick 85.9      sec/kimg 1.7    Dgdrop 0.0000   Gloss 84.6107  Dloss -6.2529  Dreal 0.0000   Dfake -7.9579 
+tick 17    kimg 854.1    lod 4.93  minibatch 64   time 16m 25s      sec/tick 144.8     sec/kimg 2.9    Dgdrop 0.0000   Gloss 86.7798  Dloss -6.2128  Dreal 0.0000   Dfake -7.8519 
+tick 18    kimg 904.3    lod 4.87  minibatch 64   time 18m 53s      sec/tick 147.7     sec/kimg 2.9    Dgdrop 0.0000   Gloss 89.2935  Dloss -5.8578  Dreal 0.0000   Dfake -7.4781 
+tick 19    kimg 954.6    lod 4.81  minibatch 64   time 21m 20s      sec/tick 147.2     sec/kimg 2.9    Dgdrop 0.0000   Gloss 88.1662  Dloss -5.6860  Dreal 0.0000   Dfake -7.2340 
+tick 20    kimg 1004.8   lod 4.74  minibatch 64   time 23m 49s      sec/tick 149.1     sec/kimg 3.0    Dgdrop 0.0000   Gloss 90.3002  Dloss -5.4561  Dreal 0.0000   Dfake -6.8579 
+tick 21    kimg 1055.0   lod 4.68  minibatch 64   time 26m 19s      sec/tick 149.9     sec/kimg 3.0    Dgdrop 0.0000   Gloss 86.3880  Dloss -5.3204  Dreal 0.0000   Dfake -6.6691 
+tick 22    kimg 1105.3   lod 4.62  minibatch 64   time 28m 48s      sec/tick 148.8     sec/kimg 3.0    Dgdrop 0.0000   Gloss 85.3965  Dloss -5.4392  Dreal 0.0000   Dfake -6.7793 
+tick 23    kimg 1155.5   lod 4.56  minibatch 64   time 31m 16s      sec/tick 148.5     sec/kimg 3.0    Dgdrop 0.0000   Gloss 83.3242  Dloss -5.7104  Dreal 0.0000   Dfake -7.1015 
+tick 24    kimg 1205.8   lod 4.49  minibatch 64   time 33m 46s      sec/tick 149.9     sec/kimg 3.0    Dgdrop 0.0000   Gloss 80.4874  Dloss -5.7760  Dreal 0.0000   Dfake -7.1847 
+tick 25    kimg 1256.0   lod 4.43  minibatch 64   time 36m 15s      sec/tick 148.5     sec/kimg 3.0    Dgdrop 0.0000   Gloss 78.6463  Dloss -6.0828  Dreal 0.0000   Dfake -7.5728 
+tick 26    kimg 1306.2   lod 4.37  minibatch 64   time 38m 44s      sec/tick 149.0     sec/kimg 3.0    Dgdrop 0.0000   Gloss 74.0263  Dloss -6.4502  Dreal 0.0000   Dfake -8.0471 
+tick 27    kimg 1356.5   lod 4.30  minibatch 64   time 41m 13s      sec/tick 148.9     sec/kimg 3.0    Dgdrop 0.0000   Gloss 70.1200  Dloss -6.5913  Dreal 0.0000   Dfake -8.2397 
+tick 28    kimg 1406.7   lod 4.24  minibatch 64   time 43m 41s      sec/tick 148.7     sec/kimg 3.0    Dgdrop 0.0000   Gloss 69.8242  Dloss -6.0157  Dreal 0.0000   Dfake -7.5223 
+tick 29    kimg 1457.0   lod 4.18  minibatch 64   time 46m 09s      sec/tick 148.0     sec/kimg 2.9    Dgdrop 0.0000   Gloss 64.6428  Dloss -6.6433  Dreal 0.0000   Dfake -8.3220 
+tick 30    kimg 1507.2   lod 4.12  minibatch 64   time 48m 40s      sec/tick 150.1     sec/kimg 3.0    Dgdrop 0.0000   Gloss 59.9979  Dloss -6.6123  Dreal 0.0000   Dfake -8.2382 
+tick 31    kimg 1557.4   lod 4.05  minibatch 64   time 51m 08s      sec/tick 148.0     sec/kimg 2.9    Dgdrop 0.0000   Gloss 54.8386  Dloss -6.4798  Dreal 0.0000   Dfake -8.0662 
+Compiling training funcs...
+tick 32    kimg 1607.7   lod 4.00  minibatch 64   time 54m 19s      sec/tick 191.3     sec/kimg 3.8    Dgdrop 0.0000   Gloss 51.3090  Dloss -6.3462  Dreal 0.0000   Dfake -7.9184 
+tick 33    kimg 1657.9   lod 4.00  minibatch 64   time 56m 45s      sec/tick 146.0     sec/kimg 2.9    Dgdrop 0.0000   Gloss 51.1017  Dloss -5.8213  Dreal 0.0000   Dfake -7.2356 
+tick 34    kimg 1708.2   lod 4.00  minibatch 64   time 59m 14s      sec/tick 149.1     sec/kimg 3.0    Dgdrop 0.0000   Gloss 49.8027  Dloss -5.3028  Dreal 0.0000   Dfake -6.5692 
+tick 35    kimg 1758.4   lod 4.00  minibatch 64   time 1h 01m 39s   sec/tick 144.6     sec/kimg 2.9    Dgdrop 0.0000   Gloss 43.7383  Dloss -4.8384  Dreal 0.0000   Dfake -5.9596 
+tick 36    kimg 1808.6   lod 4.00  minibatch 64   time 1h 04m 03s   sec/tick 143.9     sec/kimg 2.9    Dgdrop 0.0000   Gloss 44.4738  Dloss -4.6741  Dreal 0.0000   Dfake -5.7543 
+tick 37    kimg 1858.9   lod 4.00  minibatch 64   time 1h 06m 26s   sec/tick 143.9     sec/kimg 2.9    Dgdrop 0.0000   Gloss 44.8504  Dloss -4.5373  Dreal 0.0000   Dfake -5.5729 
+tick 38    kimg 1909.1   lod 4.00  minibatch 64   time 1h 08m 51s   sec/tick 144.4     sec/kimg 2.9    Dgdrop 0.0000   Gloss 42.2894  Dloss -4.3603  Dreal 0.0000   Dfake -5.3644 
+tick 39    kimg 1959.4   lod 4.00  minibatch 64   time 1h 11m 15s   sec/tick 144.4     sec/kimg 2.9    Dgdrop 0.0000   Gloss 44.8110  Dloss -4.0295  Dreal 0.0000   Dfake -4.9565 
+tick 40    kimg 2009.6   lod 4.00  minibatch 64   time 1h 13m 40s   sec/tick 144.4     sec/kimg 2.9    Dgdrop 0.0000   Gloss 44.8754  Dloss -4.0300  Dreal 0.0000   Dfake -4.9526 
+tick 41    kimg 2059.8   lod 4.00  minibatch 64   time 1h 16m 06s   sec/tick 146.4     sec/kimg 2.9    Dgdrop 0.0000   Gloss 45.1231  Dloss -3.8788  Dreal 0.0000   Dfake -4.7535 
+tick 42    kimg 2110.1   lod 4.00  minibatch 64   time 1h 18m 30s   sec/tick 144.3     sec/kimg 2.9    Dgdrop 0.0000   Gloss 42.9392  Dloss -3.7468  Dreal 0.0000   Dfake -4.6093 
+tick 43    kimg 2160.3   lod 4.00  minibatch 64   time 1h 20m 55s   sec/tick 144.8     sec/kimg 2.9    Dgdrop 0.0000   Gloss 42.1312  Dloss -3.5164  Dreal 0.0000   Dfake -4.2891 
+tick 44    kimg 2210.6   lod 4.00  minibatch 64   time 1h 23m 20s   sec/tick 144.6     sec/kimg 2.9    Dgdrop 0.0000   Gloss 42.2794  Dloss -3.4924  Dreal 0.0000   Dfake -4.2860 
+tick 45    kimg 2260.8   lod 4.00  minibatch 64   time 1h 25m 44s   sec/tick 144.4     sec/kimg 2.9    Dgdrop 0.0000   Gloss 41.9771  Dloss -3.4975  Dreal 0.0000   Dfake -4.3108 
+tick 46    kimg 2311.0   lod 4.00  minibatch 64   time 1h 28m 10s   sec/tick 145.2     sec/kimg 2.9    Dgdrop 0.0000   Gloss 43.3922  Dloss -3.3425  Dreal 0.0000   Dfake -4.1098 
+tick 47    kimg 2361.3   lod 4.00  minibatch 64   time 1h 30m 34s   sec/tick 144.8     sec/kimg 2.9    Dgdrop 0.0000   Gloss 43.6105  Dloss -3.3910  Dreal 0.0000   Dfake -4.1303 
+Compiling training funcs...
+tick 48    kimg 2411.5   lod 3.99  minibatch 64   time 1h 34m 59s   sec/tick 264.7     sec/kimg 5.3    Dgdrop 0.0000   Gloss 40.0637  Dloss -3.2306  Dreal 0.0000   Dfake -3.9656 
+tick 49    kimg 2461.8   lod 3.92  minibatch 64   time 1h 40m 30s   sec/tick 331.0     sec/kimg 6.6    Dgdrop 0.0000   Gloss 41.8692  Dloss -3.2926  Dreal 0.0000   Dfake -4.0527 
+tick 50    kimg 2512.0   lod 3.86  minibatch 64   time 1h 46m 01s   sec/tick 330.6     sec/kimg 6.6    Dgdrop 0.0000   Gloss 40.9321  Dloss -3.2131  Dreal 0.0000   Dfake -3.9416 
+tick 51    kimg 2562.2   lod 3.80  minibatch 64   time 1h 51m 31s   sec/tick 330.5     sec/kimg 6.6    Dgdrop 0.0000   Gloss 36.0557  Dloss -3.1869  Dreal 0.0000   Dfake -3.9208 
+tick 52    kimg 2612.5   lod 3.73  minibatch 64   time 1h 57m 03s   sec/tick 332.1     sec/kimg 6.6    Dgdrop 0.0000   Gloss 36.6695  Dloss -3.1095  Dreal 0.0000   Dfake -3.8215 
+tick 53    kimg 2662.7   lod 3.67  minibatch 64   time 2h 02m 35s   sec/tick 331.9     sec/kimg 6.6    Dgdrop 0.0000   Gloss 34.0037  Dloss -3.1290  Dreal 0.0000   Dfake -3.8650 
+tick 54    kimg 2713.0   lod 3.61  minibatch 64   time 2h 08m 07s   sec/tick 332.0     sec/kimg 6.6    Dgdrop 0.0000   Gloss 31.3347  Dloss -3.2993  Dreal 0.0000   Dfake -4.0130 
+tick 55    kimg 2763.2   lod 3.55  minibatch 64   time 2h 13m 40s   sec/tick 332.7     sec/kimg 6.6    Dgdrop 0.0000   Gloss 27.6810  Dloss -3.4385  Dreal 0.0000   Dfake -4.1763 
+tick 56    kimg 2813.4   lod 3.48  minibatch 64   time 2h 19m 12s   sec/tick 332.1     sec/kimg 6.6    Dgdrop 0.0000   Gloss 23.5440  Dloss -3.5119  Dreal 0.0000   Dfake -4.2614 
+tick 57    kimg 2863.7   lod 3.42  minibatch 64   time 2h 24m 44s   sec/tick 332.1     sec/kimg 6.6    Dgdrop 0.0000   Gloss 22.9192  Dloss -3.3374  Dreal 0.0000   Dfake -4.0429 
+tick 58    kimg 2913.9   lod 3.36  minibatch 64   time 2h 30m 16s   sec/tick 332.5     sec/kimg 6.6    Dgdrop 0.0000   Gloss 24.2453  Dloss -3.4832  Dreal 0.0000   Dfake -4.2624 
+tick 59    kimg 2964.2   lod 3.30  minibatch 64   time 2h 35m 48s   sec/tick 331.9     sec/kimg 6.6    Dgdrop 0.0000   Gloss 18.0605  Dloss -3.8157  Dreal 0.0000   Dfake -4.5945 
+tick 60    kimg 3014.4   lod 3.23  minibatch 64   time 2h 41m 21s   sec/tick 333.1     sec/kimg 6.6    Dgdrop 0.0000   Gloss 18.1857  Dloss -3.5305  Dreal 0.0000   Dfake -4.2997 
+tick 61    kimg 3064.6   lod 3.17  minibatch 64   time 2h 46m 54s   sec/tick 333.1     sec/kimg 6.6    Dgdrop 0.0000   Gloss 14.7059  Dloss -3.5953  Dreal 0.0000   Dfake -4.3800 
+tick 62    kimg 3114.9   lod 3.11  minibatch 64   time 2h 52m 27s   sec/tick 332.3     sec/kimg 6.6    Dgdrop 0.0000   Gloss 14.3730  Dloss -3.3246  Dreal 0.0000   Dfake -4.0218 
+tick 63    kimg 3165.1   lod 3.04  minibatch 64   time 2h 57m 59s   sec/tick 332.2     sec/kimg 6.6    Dgdrop 0.0000   Gloss 13.9801  Dloss -3.1620  Dreal 0.0000   Dfake -3.8494 
+Compiling training funcs...
+tick 64    kimg 3215.4   lod 3.00  minibatch 64   time 3h 04m 33s   sec/tick 394.3     sec/kimg 7.8    Dgdrop 0.0000   Gloss 15.0740  Dloss -3.1691  Dreal 0.0000   Dfake -3.8706 
