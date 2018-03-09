@@ -1,0 +1,16 @@
+D = {'fmap_base': 2048, 'fmap_max': 512, 'fmap_decay': 1.0, 'use_layernorm': True, 'mbdisc_kernels': None, 'mbstat_func': 'Tstdeps', 'use_wscale': False, 'func': 'D_paper', 'use_gdrop': False, 'mbstat_avg': None}
+G = {'use_pixelnorm': False, 'tanh_at_end': 1.0, 'latent_size': 128, 'fmap_max': 512, 'fmap_decay': 1.0, 'use_batchnorm': True, 'use_wscale': False, 'func': 'G_paper', 'normalize_latents': False, 'use_leakyrelu': False, 'fmap_base': 2048}
+config_idx = 1
+configs = ['gulrajani-et-al-2017', 'progressive-growing', 'small-minibatch', 'revised-training-parameters', 'minibatch-stddev', 'minibatch-discrimination', 'equalized-learning-rate', 'pixelwise-normalization']
+data_dir = datasets
+dataset = {'max_labels': 0, 'mirror_augment': True, 'resolution': 128, 'h5_path': 'celeba-128x128.h5'}
+dataset_idx = 0
+datasets = ['celeb128', 'bedroom128']
+h5_paths = {'celeb128': 'celeba-128x128.h5', 'bedroom128': 'lsun-bedroom-256x256-full.h5'}
+loss = {'cond_weight': 1.0, 'iwass_lambda': 10.0, 'iwass_target': 1.0, 'type': 'iwass', 'iwass_epsilon': 0.0, 'cond_type': 'acgan'}
+mirror_augment = {'celeb128': True, 'bedroom128': False}
+random_seed = 1000
+result_dir = results
+run_desc = celeb128-progressive-growing
+theano_flags = {'dnn.conv.algo_bwd_data': 'deterministic', 'dnn.conv.algo_bwd_filter': 'deterministic', 'assert_no_cpu_op': 'warn', 'warn_float64': 'warn', 'dnn.enabled': 'True', 'lib.cnmem': '0.80', 'dnn.conv.algo_fwd': 'small', 'floatX': 'float32', 'gpuarray.preallocate': '0.80', 'force_device': 'True', 'device': 'cuda', 'allow_gc': 'True', 'nvcc.fastmath': 'True'}
+train = {'G_learning_rate_max': 0.0001, 'total_kimg': 10000, 'adam_beta1': 0.0, 'adam_beta2': 0.9, 'rampup_kimg': 0, 'rampdown_kimg': 0, 'G_smoothing': 0.9801888648295347, 'minibatch_default': 64, 'separate_funcs': True, 'D_learning_rate_max': 0.0001, 'minibatch_overrides': {}, 'lod_initial_resolution': 4, 'gdrop_coef': 0.0, 'D_training_repeats': 5, 'lod_training_kimg': 800, 'adam_epsilon': 1e-08, 'lod_transition_kimg': 800}
